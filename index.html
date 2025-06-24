@@ -91,7 +91,7 @@
     <div id="marketing-view" x-show="!isLoggedIn">
         <!-- ===== Header / Navegação (Deslogado) ===== -->
         <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
-            <div class="container mx-auto px-6 py-4">
+             <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <a href="#" @click.prevent="currentPage = 'home'" class="flex items-center">
                          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gH" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gH)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg>
@@ -106,31 +106,14 @@
                         <a href="#" @click.prevent="currentPage = 'login'" class="text-gray-600 font-semibold hover:text-azul-eletrico transition">Acessar</a>
                         <a href="#" @click.prevent="currentPage = 'demo'" class="bg-azul-eletrico text-white font-semibold px-5 py-2 rounded-lg cta-button">Solicitar Demo</a>
                     </div>
-                    <div class="md:hidden">
-                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                        </button>
-                    </div>
-                </div>
-                <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4" x-transition>
-                    <nav class="flex flex-col space-y-4">
-                        <a href="#" @click="currentPage = 'solution'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Soluções</a>
-                        <a href="#" @click="currentPage = 'benefits'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Benefícios</a>
-                        <a href="#" @click="currentPage = 'about'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Sobre Nós</a>
-                        <a href="#" @click="currentPage = 'contact'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Contato</a>
-                        <a href="#" @click="currentPage = 'demo'; mobileMenuOpen = false" class="bg-azul-eletrico text-white text-center font-semibold px-5 py-3 rounded-lg cta-button mt-4">Solicitar Demo</a>
-                        <a href="#" @click="currentPage = 'login'; mobileMenuOpen = false" class="bg-gray-200 text-gray-700 text-center font-semibold px-5 py-3 rounded-lg mt-2">Acessar</a>
-                    </nav>
                 </div>
             </div>
         </header>
 
-        <div id="page-container">
-            <!-- As páginas de marketing aqui (home, login, etc) -->
-        </div>
+        <!-- Páginas de marketing omitidas para brevidade... -->
 
         <footer class="bg-gray-800 text-white" x-show="!isLoggedIn">
-            <!-- Conteúdo do Footer -->
+            <!-- Conteúdo do footer omitido para brevidade... -->
         </footer>
     </div>
 
@@ -170,10 +153,11 @@
                         <h1 class="text-3xl font-bold mb-4">Bem-vindo ao PrismaGov!</h1>
                         <p class="text-gray-600 mb-8">Seu dashboard central para uma gestão de contratações mais inteligente.</p>
                     </div>
+
                     <div x-show="currentAppPage === 'documentos'" class="app-page" x-cloak>
                          <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                              <h1 class="text-4xl font-bold text-gray-800">Meus Documentos</h1>
-                             <button class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button>
+                             <button @click.prevent="navigateAppTo('tr')" class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button>
                          </div>
                          <div class="bg-white rounded-xl shadow-lg overflow-x-auto">
                             <table class="w-full text-left">
@@ -195,30 +179,53 @@
                                     <template x-for="doc in documents" :key="doc.id">
                                         <tr>
                                             <td class="px-6 py-4 font-medium" x-text="doc.titulo"></td>
-                                            <td class="px-6 py-4">
-                                                <span class="px-3 py-1 text-sm font-semibold rounded-full" 
-                                                      :class="{
-                                                        'bg-verde-menta/20 text-verde-menta': doc.status === 'finalizado',
-                                                        'bg-roxo-prisma/20 text-roxo-prisma': doc.status === 'em_processamento',
-                                                        'bg-red-500/20 text-red-500': doc.status === 'erro'
-                                                      }" 
-                                                      x-text="doc.status">
-                                                </span>
-                                            </td>
+                                            <td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full" :class="statusClass(doc.status)" x-text="doc.status"></span></td>
                                             <td class="px-6 py-4 text-gray-500" x-text="new Date(doc.atualizado_em).toLocaleDateString('pt-BR')"></td>
-                                            <td class="px-6 py-4 flex space-x-2">
-                                                <a href="#" class="text-azul-eletrico hover:underline">Ver</a>
-                                                <a href="#" class="text-gray-600 hover:underline">Exportar</a>
-                                            </td>
+                                            <td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Ver</a><a href="#" class="text-gray-600 hover:underline">Exportar</a></td>
                                         </tr>
                                     </template>
                                 </tbody>
                             </table>
                          </div>
                     </div>
+
+                    <!-- Bloco 10: Formulário de Criação de TR -->
                     <div x-show="currentAppPage === 'tr'" class="app-page" x-cloak>
-                        <h1 class="text-3xl font-bold mb-4">Construtor de Termo de Referência (TR)</h1>
+                        <h1 class="text-3xl font-bold mb-4">Novo Termo de Referência</h1>
+                        <p class="text-gray-600 mb-8">Preencha os dados iniciais para gerar o DNA da sua contratação.</p>
+                        <form @submit.prevent="createDocument()" class="bg-white p-8 rounded-xl shadow-lg space-y-6 max-w-2xl mx-auto">
+                            <div>
+                                <label for="tr-title" class="block text-sm font-bold text-gray-700 mb-2">Título do Documento</label>
+                                <input type="text" id="tr-title" x-model="newDocumentData.titulo" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required>
+                            </div>
+                            <div>
+                                <label for="tr-nature" class="block text-sm font-bold text-gray-700 mb-2">Natureza do Objeto</label>
+                                <select id="tr-nature" x-model="newDocumentData.natureza" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico bg-white" required>
+                                    <option value="">Selecione a natureza...</option>
+                                    <option value="Serviço Comum">Serviço Comum</option>
+                                    <option value="Serviço Contínuo com Dedicação de Mão de Obra">Serviço Contínuo com Dedicação de Mão de Obra</option>
+                                    <option value="Serviço de TIC">Serviço de TIC</option>
+                                    <option value="Compra de Bem ou Produto">Compra de Bem ou Produto</option>
+                                    <option value="Obra ou Serviço de Engenharia">Obra ou Serviço de Engenharia</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="tr-problem" class="block text-sm font-bold text-gray-700 mb-2">Problema ou Necessidade</label>
+                                <textarea id="tr-problem" rows="4" x-model="newDocumentData.problema" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required></textarea>
+                            </div>
+                             <div>
+                                <label for="tr-results" class="block text-sm font-bold text-gray-700 mb-2">Resultados Esperados</label>
+                                <textarea id="tr-results" rows="4" x-model="newDocumentData.resultados" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="bg-azul-eletrico text-white font-bold py-3 px-6 rounded-lg cta-button">
+                                    <span x-show="!isLoading">Criar Documento</span>
+                                    <span x-show="isLoading">Criando...</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
+
                      <div x-show="currentAppPage === 'config'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Configurações da Conta</h1></div>
                      <div x-show="currentAppPage === 'suporte'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Suporte</h1></div>
                 </main>
@@ -238,6 +245,13 @@
                 apiBaseUrl: 'http://localhost:3001/api/v1',
                 documents: [],
                 isLoading: false,
+                newDocumentData: {
+                    titulo: '', // Adicionado para o formulário
+                    natureza: '',
+                    problema: '',
+                    resultados: '',
+                    // formulario_id é gerado dinamicamente
+                },
 
                 init() {
                     const token = localStorage.getItem('authToken');
@@ -245,12 +259,13 @@
                         this.isLoggedIn = true;
                         try {
                             const payload = JSON.parse(atob(token.split('.')[1]));
-                            this.user = { name: payload.name, email: payload.email };
+                            this.user = { id: payload.sub, name: payload.name, email: payload.email };
                         } catch (e) { this.logout(); }
                     }
                 },
                 
                 async login() {
+                    this.isLoading = true;
                     try {
                         const response = await fetch(`${this.apiBaseUrl}/auth/login`, {
                             method: 'POST',
@@ -262,12 +277,14 @@
                         
                         localStorage.setItem('authToken', data.access_token);
                         const payload = JSON.parse(atob(data.access_token.split('.')[1]));
-                        this.user = { name: payload.name, email: payload.email };
+                        this.user = { id: payload.sub, name: payload.name, email: payload.email };
                         this.isLoggedIn = true;
-                        this.currentAppPage = 'inicio';
+                        this.navigateAppTo('inicio');
                         this.credentials = { email: '', password: '' };
                     } catch (err) {
                         alert('Erro de Login: ' + err.message);
+                    } finally {
+                        this.isLoading = false;
                     }
                 },
 
@@ -294,6 +311,43 @@
                         this.isLoading = false;
                     }
                 },
+
+                async createDocument() {
+                    if (!this.isLoggedIn) return;
+                    this.isLoading = true;
+                    
+                    const payload = {
+                        ...this.newDocumentData,
+                        formulario_id: crypto.randomUUID(), // Gera um ID único no frontend
+                    };
+
+                    try {
+                        const token = localStorage.getItem('authToken');
+                        const response = await fetch(`${this.apiBaseUrl}/documentos/novo`, {
+                            method: 'POST',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify(payload),
+                        });
+
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            throw new Error(errorData.message || 'Falha ao criar o documento.');
+                        }
+                        
+                        alert('Documento iniciado com sucesso!');
+                        // Limpa o formulário e navega para a lista de documentos
+                        this.newDocumentData = { titulo: '', natureza: '', problema: '', resultados: '' };
+                        this.navigateAppTo('documentos');
+
+                    } catch (err) {
+                        alert('Erro: ' + err.message);
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
                 
                 navigateAppTo(page) {
                     this.currentAppPage = page;
@@ -308,6 +362,15 @@
                         link.classList.toggle('text-gray-500', !isCurrent);
                     });
                      window.scrollTo(0, 0);
+                },
+
+                statusClass(status) {
+                    switch(status) {
+                        case 'finalizado': return 'bg-verde-menta/20 text-verde-menta';
+                        case 'em_processamento': return 'bg-roxo-prisma/20 text-roxo-prisma';
+                        case 'erro': return 'bg-red-500/20 text-red-500';
+                        default: return 'bg-gray-200 text-gray-600';
+                    }
                 }
             }
         }
