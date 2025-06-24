@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrismaGov - Clareza e Decisão para o Setor Público</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F2F4F8; /* Cinza Claro do Branding */
+            color: #1F2937; /* Cinza Escuro para texto */
+        }
+        /* Custom styles to reuse brand colors */
+        .bg-azul-eletrico { background-color: #0074E4; }
+        .text-azul-eletrico { color: #0074E4; }
+        .border-azul-eletrico { border-color: #0074E4; }
+        
+        .bg-verde-menta { background-color: #24C9A0; }
+        .text-verde-menta { color: #24C9A0; }
+
+        .bg-roxo-prisma { background-color: #7D3FD1; }
+        .text-roxo-prisma { color: #7D3FD1; }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0074E4, #24C9A0, #7D3FD1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px -5px rgba(0, 116, 228, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px -5px rgba(0, 116, 228, 0.6);
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            background-color: #0074E4;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 9999px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 116, 228, 0.3);
+            transition: all 0.3s ease;
+        }
+        .floating-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 116, 228, 0.5);
+        }
+        [x-cloak] { display: none !important; }
+        .page, .app-page {
+             animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body x-data="{ isLoggedIn: false, mobileMenuOpen: false, currentPage: 'home', currentAppPage: 'inicio' }" x-cloak>
+
+    <!-- Botão de CTA Flutuante (só aparece deslogado) -->
+    <a href="#" x-show="!isLoggedIn" @click.prevent="currentPage = 'demo'" class="floating-cta hidden md:inline-block">Solicitar Demonstração</a>
+
+    <!-- Visualização para usuários DESLOGADOS -->
+    <div id="marketing-view" x-show="!isLoggedIn">
+        <!-- ===== Header / Navegação (Deslogado) ===== -->
+        <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="#" @click.prevent="currentPage = 'home'" class="flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gH" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gH)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg>
+                    </a>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#solucoes" @click.prevent="currentPage = 'solution'" class="text-gray-600 hover:text-azul-eletrico transition">Soluções</a>
+                        <a href="#beneficios" @click.prevent="currentPage = 'benefits'" class="text-gray-600 hover:text-azul-eletrico transition">Benefícios</a>
+                        <a href="#sobre" @click.prevent="currentPage = 'about'" class="text-gray-600 hover:text-azul-eletrico transition">Sobre Nós</a>
+                        <a href="#contato" @click.prevent="currentPage = 'contact'" class="text-gray-600 hover:text-azul-eletrico transition">Contato</a>
+                    </nav>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="#" @click.prevent="currentPage = 'login'" class="text-gray-600 font-semibold hover:text-azul-eletrico transition">Acessar</a>
+                        <a href="#" @click.prevent="currentPage = 'demo'" class="bg-azul-eletrico text-white font-semibold px-5 py-2 rounded-lg cta-button">Solicitar Demo</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4" x-transition>
+                    <nav class="flex flex-col space-y-4">
+                        <a href="#" @click="currentPage = 'solution'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Soluções</a>
+                        <a href="#" @click="currentPage = 'benefits'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Benefícios</a>
+                        <a href="#" @click="currentPage = 'about'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Sobre Nós</a>
+                        <a href="#" @click="currentPage = 'contact'; mobileMenuOpen = false" class="text-gray-600 hover:text-azul-eletrico transition py-2">Contato</a>
+                        <a href="#" @click="currentPage = 'demo'; mobileMenuOpen = false" class="bg-azul-eletrico text-white text-center font-semibold px-5 py-3 rounded-lg cta-button mt-4">Solicitar Demo</a>
+                        <a href="#" @click="currentPage = 'login'; mobileMenuOpen = false" class="bg-gray-200 text-gray-700 text-center font-semibold px-5 py-3 rounded-lg mt-2">Acessar</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div id="page-container">
+            <!-- ===== Bloco 3: Conteúdo da Home Page ===== -->
+            <main x-show="currentPage === 'home'" class="page">
+                 <section class="pt-32 pb-20 bg-white">
+                    <div class="container mx-auto px-6 text-center">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
+                            Transforme a Complexidade Jurídica em <span class="gradient-text">Estratégia Inteligente.</span>
+                        </h1>
+                        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                            A plataforma de IA que automatiza a análise e criação de documentos técnicos para o setor público, garantindo compliance, agilidade e decisões baseadas em dados.
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <a href="#" @click.prevent="currentPage = 'demo'" class="w-full sm:w-auto bg-azul-eletrico text-white font-bold px-8 py-4 rounded-lg cta-button text-lg">
+                                Solicite uma Demonstração
+                            </a>
+                            <a href="#" class="w-full sm:w-auto flex items-center justify-center font-semibold text-gray-700 hover:text-azul-eletrico transition">
+                                <svg class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                                Ver vídeo (2 min)
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section id="beneficios-home" class="py-20">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">O Poder da Clareza para a Gestão Pública</h2>
+                            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nossa IA revela o que está oculto na complexidade dos seus documentos.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                                <div class="bg-verde-menta/10 inline-block p-4 rounded-full mb-6">
+                                   <svg class="h-8 w-8 text-verde-menta" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Compliance Automatizado</h3>
+                                <p class="text-gray-600">Nossa IA verifica automaticamente a conformidade de Termos de Referência e ETPs com as leis e normas vigentes, reduzindo riscos e evitando retrabalho.</p>
+                            </div>
+                            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                                <div class="bg-roxo-prisma/10 inline-block p-4 rounded-full mb-6">
+                                    <svg class="h-8 w-8 text-roxo-prisma" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Agilidade na Contratação</h3>
+                                <p class="text-gray-600">Acelere a criação de artefatos de planejamento. Gere minutas e documentos técnicos de alta qualidade em uma fração do tempo, liberando sua equipe para focar no estratégico.</p>
+                            </div>
+                            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                                <div class="bg-azul-eletrico/10 inline-block p-4 rounded-full mb-6">
+                                    <svg class="h-8 w-8 text-azul-eletrico" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Visão Estratégica</h3>
+                                <p class="text-gray-600">Transforme dados de documentos em dashboards interativos. Obtenha insights valiosos sobre seus processos de contratação e tome decisões mais inteligentes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- O restante do conteúdo da home page (Como funciona, depoimentos, etc.) virá nos próximos blocos -->
+            </main>
+            
+            <main x-show="currentPage === 'login'" class="page" x-cloak>
+                 <div class="flex items-center justify-center min-h-screen pt-20"><div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl w-full max-w-md m-4"><div class="text-center mb-8"><a href="#" @click.prevent="currentPage = 'home'" class="inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-auto mx-auto" viewBox="0 0 450 100"><defs><linearGradient id="lg-grad-2" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#lg-grad-2)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg></a><h1 class="text-3xl font-bold text-gray-800 mt-4">Acesse sua Conta</h1><p class="text-gray-500">Bem-vindo(a) de volta!</p></div><form @submit.prevent="isLoggedIn = true; currentAppPage = 'inicio'"><div class="space-y-6"><div><label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email</label><input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="seu.email@orgao.gov.br" required></div><div><label for="password" class="block text-sm font-bold text-gray-700 mb-2">Senha</label><input type="password" name="password" id="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="••••••••" required></div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-3 rounded-lg cta-button">Entrar</button></div></form></div></div>
+            </main>
+            <main x-show="currentPage === 'demo'" class="page" x-cloak>
+                <div class="pt-32 pb-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-12"><h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Dê o primeiro passo para transformar a gestão pública</h1><p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Preencha o formulário abaixo e um de nossos especialistas agendará uma demonstração personalizada para você.</p></div><div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"><div class="bg-gray-50 p-8 rounded-2xl"><h3 class="text-2xl font-bold mb-6">Uma nova era para suas contratações:</h3><ul class="space-y-4"><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Redução de riscos jurídicos.</strong> Alinhamento total com a Lei 14.133/21.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Elaboração guiada e inteligente.</strong> Crie artefatos de planejamento em minutos.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Visão estratégica de contratos.</strong> Transforme dados em decisões com dashboards intuitivos.</span></li></ul><div class="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500"><p>🔒 Seus dados estão seguros. Respeitamos a LGPD.</p></div></div><div><form action="#" onsubmit="event.preventDefault(); alert('Demonstração solicitada com sucesso!'); this.dispatchEvent(new CustomEvent('navigate', { bubbles: true, detail: { page: 'home' } }))"><div class="space-y-5"><div><label for="demo-name" class="block text-sm font-bold text-gray-700 mb-2">Nome completo</label><input type="text" id="demo-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-cargo" class="block text-sm font-bold text-gray-700 mb-2">Cargo</label><input type="text" id="demo-cargo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-instituicao" class="block text-sm font-bold text-gray-700 mb-2">Instituição</label><input type="text" id="demo-instituicao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-email" class="block text-sm font-bold text-gray-700 mb-2">E-mail institucional</label><input type="email" id="demo-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-phone" class="block text-sm font-bold text-gray-700 mb-2">Telefone com WhatsApp</label><input type="tel" id="demo-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-4 rounded-lg cta-button text-lg">Agendar Demonstração</button></div></div></form></div></div></div></div>
+            </main>
+            <!-- Outras páginas de marketing (solution, benefits, etc.) serão adicionadas aqui -->
+        </div>
+
+        <footer class="bg-gray-800 text-white" x-show="!isLoggedIn">
+             <div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="lg:col-span-2"><a href="#" @click.prevent="currentPage = 'home'" class="flex items-center space-x-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gF" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#4A5568"/><path d="M 85 15 L 70 30 H 85 Z" fill="#718096"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gF)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="white">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg></a><p class="text-gray-400 max-w-sm">Transformando a complexidade do setor público em clareza estratégica através da inteligência artificial.</p></div><div><h4 class="font-bold text-lg mb-4">Plataforma</h4><ul class="space-y-3"><li><a href="#" @click.prevent="currentPage = 'solution'" class="text-gray-400 hover:text-white transition">Soluções</a></li><li><a href="#" @click.prevent="currentPage = 'benefits'" class="text-gray-400 hover:text-white transition">Benefícios</a></li><li><a href="#" @click.prevent="currentPage = 'faq'" class="text-gray-400 hover:text-white transition">FAQ</a></li></ul></div><div><h4 class="font-bold text-lg mb-4">Empresa</h4><ul class="space-y-3"><li><a href="#" @click.prevent="currentPage = 'about'" class="text-gray-400 hover:text-white transition">Sobre nós</a></li><li><a href="#" @click.prevent="currentPage = 'careers'" class="text-gray-400 hover:text-white transition">Carreiras</a></li><li><a href="#" @click.prevent="currentPage = 'contact'" class="text-gray-400 hover:text-white transition">Contato</a></li></ul></div></div><div class="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row items-center justify-between"><p class="text-gray-500">&copy; 2025 PrismaGov. Todos os direitos reservados.</p><div class="flex space-x-4 mt-4 sm:mt-0"><a href="#" class="text-gray-500 hover:text-white"><span class="sr-only">LinkedIn</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg></a><a href="#" class="text-gray-500 hover:text-white"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg></a></div></div></div>
+        </footer>
+    </div>
+
+    <!-- Visualização para usuários LOGADOS (APP SHELL) -->
+    <div id="app-shell" x-show="isLoggedIn" x-cloak>
+        <div class="flex h-screen bg-gray-100">
+            <!-- Sidebar de Navegação (Logado) -->
+            <aside class="w-64 bg-white shadow-md flex flex-col flex-shrink-0">
+                <div class="flex items-center justify-center p-6 border-b space-x-2">
+                    <a href="#" @click.prevent="currentAppPage = 'inicio'" class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 170 100"><defs><linearGradient id="gS" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gS)"/></g></svg>
+                        <span class="ml-2 text-xl font-bold text-gray-800">Prisma<span class="text-azul-eletrico">Gov</span></span>
+                    </a>
+                </div>
+                <nav class="flex-1 px-4 py-4 space-y-2" id="app-nav">
+                    <a href="#" @click.prevent="navigateAppTo('inicio')" data-page="inicio" class="app-nav-link flex items-center px-4 py-2.5 text-gray-700 bg-gray-200 rounded-lg font-semibold"><span id="icon-inicio"></span><span class="ml-3">Início</span></a>
+                    <a href="#" @click.prevent="navigateAppTo('documentos')" data-page="documentos" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-documentos"></span><span class="ml-3">Documentos</span></a>
+                    <a href="#" @click.prevent="navigateAppTo('tr')" data-page="tr" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-tr"></span><span class="ml-3">Novo TR</span></a>
+                    <a href="#" class="flex items-center px-4 py-2.5 text-gray-400 cursor-not-allowed"><span id="icon-etp"></span><span class="ml-3">ETP <span class="text-xs ml-1 bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded">Em Breve</span></span></a>
+                    <a href="#" class="flex items-center px-4 py-2.5 text-gray-400 cursor-not-allowed"><span id="icon-dfd"></span><span class="ml-3">DFD <span class="text-xs ml-1 bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded">Em Breve</span></span></a>
+                </nav>
+                <div class="p-4 border-t">
+                    <a href="#" @click.prevent="navigateAppTo('config')" data-page="config" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg mb-2"><span id="icon-config"></span><span class="ml-3">Configurações</span></a>
+                    <a href="#" @click.prevent="navigateAppTo('suporte')" data-page="suporte" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-suporte"></span><span class="ml-3">Suporte</span></a>
+                </div>
+            </aside>
+            
+            <div class="flex-1 flex flex-col overflow-hidden">
+                <header class="flex justify-between items-center p-4 bg-white border-b">
+                    <div class="font-semibold">Logado como: <span class="text-azul-eletrico">Gestor Público</span></div>
+                    <button @click="isLoggedIn = false; currentPage = 'home'" class="text-gray-500 hover:text-red-600 font-semibold flex items-center"><span id="icon-logout"></span><span class="ml-2">Sair</span></button>
+                </header>
+                
+                <main id="app-content" class="flex-1 p-6 lg:p-8 overflow-y-auto">
+                    <!-- Conteúdo das Páginas da Aplicação -->
+                    <div x-show="currentAppPage === 'inicio'" class="app-page">
+                        <h1 class="text-3xl font-bold mb-4">Bem-vindo ao PrismaGov!</h1>
+                        <p class="text-gray-600 mb-8">Seu dashboard central para uma gestão de contratações mais inteligente.</p>
+                        <!-- Conteúdo do Dashboard aqui -->
+                    </div>
+                    <div x-show="currentAppPage === 'documentos'" class="app-page" x-cloak>
+                         <div class="flex flex-col md:flex-row justify-between items-center mb-8"><h1 class="text-4xl font-bold text-gray-800">Meus Documentos</h1><button class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button></div><div class="bg-white rounded-xl shadow-lg overflow-x-auto"><table class="w-full text-left"><thead class="bg-gray-50 border-b border-gray-200"><tr><th class="px-6 py-4 font-semibold text-gray-600">Título</th><th class="px-6 py-4 font-semibold text-gray-600">Status</th><th class="px-6 py-4 font-semibold text-gray-600">Atualização</th><th class="px-6 py-4 font-semibold text-gray-600">Ações</th></tr></thead><tbody class="divide-y divide-gray-200"><tr><td class="px-6 py-4 font-medium">TR - Contratação de Software</td><td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full bg-verde-menta/20 text-verde-menta">Finalizado</span></td><td class="px-6 py-4 text-gray-500">20/06/2025</td><td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Ver</a><a href="#" class="text-gray-600 hover:underline">Exportar</a></td></tr><tr><td class="px-6 py-4 font-medium">ETP - Aquisição de Notebooks</td><td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full bg-roxo-prisma/20 text-roxo-prisma">Em Processamento</span></td><td class="px-6 py-4 text-gray-500">23/06/2025</td><td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Editar</a><a href="#" class="text-gray-600 hover:underline">Cancelar</a></td></tr></tbody></table></div>
+                    </div>
+                    <div x-show="currentAppPage === 'tr'" class="app-page" x-cloak>
+                        <h1 class="text-3xl font-bold mb-4">Construtor de Termo de Referência (TR)</h1>
+                        <p class="text-gray-600 mb-8">Preencha os campos abaixo para gerar um novo documento.</p>
+                        <!-- Formulário do TR aqui -->
+                    </div>
+                     <div x-show="currentAppPage === 'config'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Configurações da Conta</h1></div>
+                     <div x-show="currentAppPage === 'suporte'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Suporte</h1></div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('app', () => ({
+                isLoggedIn: false,
+                mobileMenuOpen: false, 
+                currentPage: 'home', 
+                currentAppPage: 'inicio'
+            }))
+        });
+
+        const iconMappings = {
+            'icon-inicio': 'Home', 'icon-documentos': 'Files', 'icon-tr': 'FilePlus2',
+            'icon-etp': 'FileText', 'icon-dfd': 'FileSpreadsheet', 'icon-config': 'Settings',
+            'icon-suporte': 'LifeBuoy', 'icon-logout': 'LogOut'
+        };
+
+        function renderIcons() {
+             for (const [id, name] of Object.entries(iconMappings)) {
+                const container = document.getElementById(id);
+                if(container){
+                    const iconElement = React.createElement(lucide[name], { size: 20 });
+                    ReactDOM.render(iconElement, container);
+                }
+            }
+        }
+        
+        function navigateAppTo(page) {
+            const appData = document.querySelector('[x-data]').__x.$data;
+            appData.currentAppPage = page;
+
+            document.querySelectorAll('.app-nav-link').forEach(link => {
+                const isCurrent = link.dataset.page === page;
+                link.classList.toggle('bg-gray-200', isCurrent);
+                link.classList.toggle('text-gray-700', isCurrent);
+                link.classList.toggle('font-semibold', isCurrent);
+                link.classList.toggle('text-gray-500', !isCurrent);
+            });
+             window.scrollTo(0, 0);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+             renderIcons();
+        });
+    </script>
+</body>
+</html>
