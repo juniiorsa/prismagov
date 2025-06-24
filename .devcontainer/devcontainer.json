@@ -1,0 +1,24 @@
+{
+    "name": "PrismaGov - Ambiente de Desenvolvimento",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+    "forwardPorts": [
+        3001,
+        5500,
+        5678
+    ],
+    "portsAttributes": {
+        "3001": { "label": "Backend (NestJS)" },
+        "5500": { "label": "Frontend (Live Server)" },
+        "5678": { "label": "N8N (Webhook/UI)" }
+    },
+    "postCreateCommand": "cd backend && npm install",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ritwickdey.LiveServer",
+                "prisma.prisma",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
