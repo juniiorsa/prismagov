@@ -192,7 +192,6 @@
                         });
                         if (!response.ok) throw new Error((await response.json()).message || 'Falha ao processar preços.');
                         
-                        // Simula a escrita da IA no canvas
                         await this.sleep(1500);
                         const media = payload.cotas.reduce((acc, c) => acc + c.valor, 0) / payload.cotas.length;
                         this.wizard.documentContent.prices = `
@@ -200,7 +199,7 @@
                             <p>Foram recebidas ${payload.cotas.length} cotações para o objeto. A média de preços apurada é de <strong>R$ ${media.toFixed(2)}</strong>.</p>
                             <p><em>Parecer da IA: Com base nos valores apresentados, observa-se uma variação normal de mercado, sem indícios de sobrepreço. Recomenda-se prosseguir com o valor médio como referência.</em></p>`;
                         
-                        this.wizard.currentStep = 3; // Avança para a próxima etapa (a ser criada)
+                        this.wizard.currentStep = 3; 
                         this.wizard.statusText = 'Aguardando próxima etapa...';
 
                     } catch (err) {
