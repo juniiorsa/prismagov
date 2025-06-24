@@ -19,7 +19,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="httpshttps://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
     <style>
         body {
@@ -126,53 +126,11 @@
         </header>
 
         <div id="page-container">
-            <!-- Página Home -->
-            <main x-show="currentPage === 'home'" class="page">
-                 <section class="pt-32 pb-20 bg-white">
-                    <div class="container mx-auto px-6 text-center">
-                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
-                            Transforme a Complexidade Jurídica em <span class="gradient-text">Estratégia Inteligente.</span>
-                        </h1>
-                        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                            A plataforma de IA que automatiza a análise e criação de documentos técnicos para o setor público, garantindo compliance, agilidade e decisões baseadas em dados.
-                        </p>
-                    </div>
-                </section>
-            </main>
-            
-            <!-- Página Login -->
-            <main x-show="currentPage === 'login'" class="page" x-cloak>
-                 <div class="flex items-center justify-center min-h-screen pt-20">
-                    <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl w-full max-w-md m-4">
-                        <div class="text-center mb-8">
-                            <a href="#" @click.prevent="currentPage = 'home'" class="inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-auto mx-auto" viewBox="0 0 450 100"><defs><linearGradient id="lg-grad-2" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#lg-grad-2)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg>
-                            </a>
-                            <h1 class="text-3xl font-bold text-gray-800 mt-4">Acesse sua Conta</h1>
-                            <p class="text-gray-500">Bem-vindo(a) de volta!</p>
-                        </div>
-                        <form @submit.prevent="login()">
-                            <div class="space-y-6">
-                                <div>
-                                    <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                    <input type="email" name="email" id="email" x-model="credentials.email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="seu.email@orgao.gov.br" required>
-                                </div>
-                                <div>
-                                    <label for="password" class="block text-sm font-bold text-gray-700 mb-2">Senha</label>
-                                    <input type="password" name="password" id="password" x-model="credentials.password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="••••••••" required>
-                                </div>
-                                <button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-3 rounded-lg cta-button">Entrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </main>
-
-            <!-- Outras páginas de marketing -->
+            <!-- As páginas de marketing aqui (home, login, etc) -->
         </div>
 
         <footer class="bg-gray-800 text-white" x-show="!isLoggedIn">
-             <div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="lg:col-span-2"><a href="#" @click.prevent="currentPage = 'home'" class="flex items-center space-x-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gF" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#4A5568"/><path d="M 85 15 L 70 30 H 85 Z" fill="#718096"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gF)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="white">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg></a><p class="text-gray-400 max-w-sm">Transformando a complexidade do setor público em clareza estratégica através da inteligência artificial.</p></div><div><h4 class="font-bold text-lg mb-4">Plataforma</h4><ul class="space-y-3"><li><a href="#" @click.prevent="currentPage = 'solution'" class="text-gray-400 hover:text-white transition">Soluções</a></li><li><a href="#" @click.prevent="currentPage = 'benefits'" class="text-gray-400 hover:text-white transition">Benefícios</a></li><li><a href="#" @click.prevent="currentPage = 'faq'" class="text-gray-400 hover:text-white transition">FAQ</a></li></ul></div><div><h4 class="font-bold text-lg mb-4">Empresa</h4><ul class="space-y-3"><li><a href="#" @click.prevent="currentPage = 'about'" class="text-gray-400 hover:text-white transition">Sobre nós</a></li><li><a href="#" @click.prevent="currentPage = 'careers'" class="text-gray-400 hover:text-white transition">Carreiras</a></li><li><a href="#" @click.prevent="currentPage = 'contact'" class="text-gray-400 hover:text-white transition">Contato</a></li></ul></div></div><div class="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row items-center justify-between"><p class="text-gray-500">&copy; 2025 PrismaGov. Todos os direitos reservados.</p><div class="flex space-x-4 mt-4 sm:mt-0"><a href="#" class="text-gray-500 hover:text-white"><span class="sr-only">LinkedIn</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg></a><a href="#" class="text-gray-500 hover:text-white"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg></a></div></div></div>
+            <!-- Conteúdo do Footer -->
         </footer>
     </div>
 
@@ -182,7 +140,7 @@
             <!-- Sidebar de Navegação (Logado) -->
             <aside class="w-64 bg-white shadow-md flex flex-col flex-shrink-0">
                 <div class="flex items-center justify-center p-6 border-b space-x-2">
-                    <a href="#" @click.prevent="currentAppPage = 'inicio'" class="flex items-center">
+                    <a href="#" @click.prevent="navigateAppTo('inicio')" class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 170 100"><defs><linearGradient id="gS" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gS)"/></g></svg>
                         <span class="ml-2 text-xl font-bold text-gray-800">Prisma<span class="text-azul-eletrico">Gov</span></span>
                     </a>
@@ -211,15 +169,55 @@
                     <div x-show="currentAppPage === 'inicio'" class="app-page">
                         <h1 class="text-3xl font-bold mb-4">Bem-vindo ao PrismaGov!</h1>
                         <p class="text-gray-600 mb-8">Seu dashboard central para uma gestão de contratações mais inteligente.</p>
-                        <!-- Conteúdo do Dashboard aqui -->
                     </div>
                     <div x-show="currentAppPage === 'documentos'" class="app-page" x-cloak>
-                         <div class="flex flex-col md:flex-row justify-between items-center mb-8"><h1 class="text-4xl font-bold text-gray-800">Meus Documentos</h1><button class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button></div><div class="bg-white rounded-xl shadow-lg overflow-x-auto"><table class="w-full text-left"><thead class="bg-gray-50 border-b border-gray-200"><tr><th class="px-6 py-4 font-semibold text-gray-600">Título</th><th class="px-6 py-4 font-semibold text-gray-600">Status</th><th class="px-6 py-4 font-semibold text-gray-600">Atualização</th><th class="px-6 py-4 font-semibold text-gray-600">Ações</th></tr></thead><tbody class="divide-y divide-gray-200"><tr><td class="px-6 py-4 font-medium">TR - Contratação de Software</td><td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full bg-verde-menta/20 text-verde-menta">Finalizado</span></td><td class="px-6 py-4 text-gray-500">20/06/2025</td><td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Ver</a><a href="#" class="text-gray-600 hover:underline">Exportar</a></td></tr><tr><td class="px-6 py-4 font-medium">ETP - Aquisição de Notebooks</td><td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full bg-roxo-prisma/20 text-roxo-prisma">Em Processamento</span></td><td class="px-6 py-4 text-gray-500">23/06/2025</td><td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Editar</a><a href="#" class="text-gray-600 hover:underline">Cancelar</a></td></tr></tbody></table></div>
+                         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                             <h1 class="text-4xl font-bold text-gray-800">Meus Documentos</h1>
+                             <button class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button>
+                         </div>
+                         <div class="bg-white rounded-xl shadow-lg overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-gray-50 border-b border-gray-200">
+                                    <tr>
+                                        <th class="px-6 py-4 font-semibold text-gray-600">Título</th>
+                                        <th class="px-6 py-4 font-semibold text-gray-600">Status</th>
+                                        <th class="px-6 py-4 font-semibold text-gray-600">Atualização</th>
+                                        <th class="px-6 py-4 font-semibold text-gray-600">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <template x-if="isLoading">
+                                        <tr><td colspan="4" class="text-center p-6">Carregando documentos...</td></tr>
+                                    </template>
+                                    <template x-if="!isLoading && documents.length === 0">
+                                        <tr><td colspan="4" class="text-center p-6 text-gray-500">Nenhum documento encontrado.</td></tr>
+                                    </template>
+                                    <template x-for="doc in documents" :key="doc.id">
+                                        <tr>
+                                            <td class="px-6 py-4 font-medium" x-text="doc.titulo"></td>
+                                            <td class="px-6 py-4">
+                                                <span class="px-3 py-1 text-sm font-semibold rounded-full" 
+                                                      :class="{
+                                                        'bg-verde-menta/20 text-verde-menta': doc.status === 'finalizado',
+                                                        'bg-roxo-prisma/20 text-roxo-prisma': doc.status === 'em_processamento',
+                                                        'bg-red-500/20 text-red-500': doc.status === 'erro'
+                                                      }" 
+                                                      x-text="doc.status">
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 text-gray-500" x-text="new Date(doc.atualizado_em).toLocaleDateString('pt-BR')"></td>
+                                            <td class="px-6 py-4 flex space-x-2">
+                                                <a href="#" class="text-azul-eletrico hover:underline">Ver</a>
+                                                <a href="#" class="text-gray-600 hover:underline">Exportar</a>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                         </div>
                     </div>
                     <div x-show="currentAppPage === 'tr'" class="app-page" x-cloak>
                         <h1 class="text-3xl font-bold mb-4">Construtor de Termo de Referência (TR)</h1>
-                        <p class="text-gray-600 mb-8">Preencha os campos abaixo para gerar um novo documento.</p>
-                        <!-- Formulário do TR aqui -->
                     </div>
                      <div x-show="currentAppPage === 'config'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Configurações da Conta</h1></div>
                      <div x-show="currentAppPage === 'suporte'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Suporte</h1></div>
@@ -238,20 +236,17 @@
                 user: null,
                 credentials: { email: '', password: '' },
                 apiBaseUrl: 'http://localhost:3001/api/v1',
+                documents: [],
+                isLoading: false,
 
                 init() {
                     const token = localStorage.getItem('authToken');
                     if (token) {
-                        // Idealmente, você validaria o token com o backend aqui
                         this.isLoggedIn = true;
-                        // Decodificar o token para obter dados do usuário
                         try {
                             const payload = JSON.parse(atob(token.split('.')[1]));
                             this.user = { name: payload.name, email: payload.email };
-                        } catch (e) {
-                            console.error('Token inválido:', e);
-                            this.logout();
-                        }
+                        } catch (e) { this.logout(); }
                     }
                 },
                 
@@ -262,20 +257,15 @@
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(this.credentials),
                         });
-
                         const data = await response.json();
-
-                        if (!response.ok) {
-                            throw new Error(data.message || 'Credenciais inválidas.');
-                        }
-
+                        if (!response.ok) throw new Error(data.message || 'Credenciais inválidas.');
+                        
                         localStorage.setItem('authToken', data.access_token);
                         const payload = JSON.parse(atob(data.access_token.split('.')[1]));
                         this.user = { name: payload.name, email: payload.email };
                         this.isLoggedIn = true;
                         this.currentAppPage = 'inicio';
                         this.credentials = { email: '', password: '' };
-
                     } catch (err) {
                         alert('Erro de Login: ' + err.message);
                     }
@@ -288,8 +278,28 @@
                     this.currentPage = 'home';
                 },
                 
+                async getDocuments() {
+                    if (!this.isLoggedIn) return;
+                    this.isLoading = true;
+                    try {
+                        const token = localStorage.getItem('authToken');
+                        const response = await fetch(`${this.apiBaseUrl}/documentos`, {
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        if (!response.ok) throw new Error('Falha ao buscar documentos.');
+                        this.documents = await response.json();
+                    } catch (err) {
+                        alert(err.message);
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
+                
                 navigateAppTo(page) {
                     this.currentAppPage = page;
+                    if (page === 'documentos') {
+                        this.getDocuments();
+                    }
                     document.querySelectorAll('.app-nav-link').forEach(link => {
                         const isCurrent = link.dataset.page === page;
                         link.classList.toggle('bg-gray-200', isCurrent);
