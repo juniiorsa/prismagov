@@ -97,10 +97,10 @@
                          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gH" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gH)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg>
                     </a>
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="#solucoes" @click.prevent="currentPage = 'solution'" class="text-gray-600 hover:text-azul-eletrico transition">Soluções</a>
-                        <a href="#beneficios" @click.prevent="currentPage = 'benefits'" class="text-gray-600 hover:text-azul-eletrico transition">Benefícios</a>
-                        <a href="#sobre" @click.prevent="currentPage = 'about'" class="text-gray-600 hover:text-azul-eletrico transition">Sobre Nós</a>
-                        <a href="#contato" @click.prevent="currentPage = 'contact'" class="text-gray-600 hover:text-azul-eletrico transition">Contato</a>
+                        <a href="#" @click.prevent="currentPage = 'solution'" class="text-gray-600 hover:text-azul-eletrico transition">Soluções</a>
+                        <a href="#" @click.prevent="currentPage = 'benefits'" class="text-gray-600 hover:text-azul-eletrico transition">Benefícios</a>
+                        <a href="#" @click.prevent="currentPage = 'about'" class="text-gray-600 hover:text-azul-eletrico transition">Sobre Nós</a>
+                        <a href="#" @click.prevent="currentPage = 'contact'" class="text-gray-600 hover:text-azul-eletrico transition">Contato</a>
                     </nav>
                     <div class="hidden md:flex items-center space-x-4">
                         <a href="#" @click.prevent="currentPage = 'login'" class="text-gray-600 font-semibold hover:text-azul-eletrico transition">Acessar</a>
@@ -126,7 +126,7 @@
         </header>
 
         <div id="page-container">
-            <!-- ===== Bloco 3: Conteúdo da Home Page ===== -->
+            <!-- ===== Página Home ===== -->
             <main x-show="currentPage === 'home'" class="page">
                  <section class="pt-32 pb-20 bg-white">
                     <div class="container mx-auto px-6 text-center">
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="beneficios-home" class="py-20">
+                <section class="py-20">
                     <div class="container mx-auto px-6">
                         <div class="text-center mb-12">
                             <h2 class="text-3xl md:text-4xl font-bold text-gray-800">O Poder da Clareza para a Gestão Pública</h2>
@@ -178,16 +178,201 @@
                         </div>
                     </div>
                 </section>
-                <!-- O restante do conteúdo da home page (Como funciona, depoimentos, etc.) virá nos próximos blocos -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-6">
+                         <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Simples, Rápido e Poderoso</h2>
+                            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Em três passos, a complexidade se torna clareza.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                                <div class="text-center">
+                                    <div class="relative inline-block"><div class="w-24 h-24 mx-auto flex items-center justify-center bg-azul-eletrico text-white text-3xl font-bold rounded-full shadow-lg">1</div></div>
+                                    <h3 class="text-xl font-bold mt-6 mb-2">Envie seus Documentos</h3>
+                                    <p class="text-gray-600">Faça o upload de ETPs, minutas e outros artefatos de planejamento com segurança em nossa plataforma.</p>
+                                </div>
+                                <div class="text-center">
+                                     <div class="relative inline-block"><div class="w-24 h-24 mx-auto flex items-center justify-center bg-verde-menta text-white text-3xl font-bold rounded-full shadow-lg">2</div></div>
+                                    <h3 class="text-xl font-bold mt-6 mb-2">IA Analisa e Revela</h3>
+                                    <p class="text-gray-600">Nosso prisma de IA processa o conteúdo, identifica riscos, sugere melhorias e revela insights ocultos.</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="relative inline-block"><div class="w-24 h-24 mx-auto flex items-center justify-center bg-roxo-prisma text-white text-3xl font-bold rounded-full shadow-lg">3</div></div>
+                                    <h3 class="text-xl font-bold mt-6 mb-2">Receba a Clareza</h3>
+                                    <p class="text-gray-600">Exporte documentos revisados e acesse dashboards para uma tomada de decisão ágil e fundamentada.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-20">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Quem Confia na PrismaGov</h2>
+                            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Veja o que gestores públicos estão dizendo sobre a nossa plataforma.</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div class="bg-white p-8 rounded-xl shadow-lg">
+                                <p class="text-gray-700 text-lg italic mb-6">"A PrismaGov reduziu o tempo de análise dos nossos Termos de Referência em 70%. O nível de detalhe e a precisão da IA são impressionantes. É uma ferramenta indispensável para a gestão moderna."</p>
+                                <div class="flex items-center">
+                                    <img class="h-14 w-14 rounded-full object-cover" src="https://placehold.co/100x100/E2E8F0/4A5568?text=JS" alt="Foto de Joana Silva" onerror="this.onerror=null;this.src='https://placehold.co/100x100/E2E8F0/4A5568?text=JS';">
+                                    <div class="ml-4">
+                                        <p class="font-bold text-gray-800">Joana Silva</p>
+                                        <p class="text-gray-600">Gestora de Contratos, Secretaria de Inovação</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-8 rounded-xl shadow-lg">
+                                <p class="text-gray-700 text-lg italic mb-6">"O dashboard de compliance é um divisor de águas. Conseguimos ter uma visão clara dos nossos gargalos e pontos de risco, algo que era impossível com processos manuais. Recomendo fortemente."</p>
+                                <div class="flex items-center">
+                                    <img class="h-14 w-14 rounded-full object-cover" src="https://placehold.co/100x100/E2E8F0/4A5568?text=MA" alt="Foto de Marcos Andrade" onerror="this.onerror=null;this.src='https://placehold.co/100x100/E2E8F0/4A5568?text=MA';">
+                                    <div class="ml-4">
+                                        <p class="font-bold text-gray-800">Marcos Andrade</p>
+                                        <p class="text-gray-600">Procurador Chefe, Autarquia Federal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="bg-white">
+                    <div class="container mx-auto px-6 py-20">
+                        <div class="bg-azul-eletrico rounded-2xl p-10 md:p-16 text-center text-white">
+                            <h2 class="text-3xl md:text-4xl font-extrabold">Pronto para Revolucionar sua Gestão?</h2>
+                            <p class="mt-4 text-lg max-w-2xl mx-auto opacity-90">Chega de complexidade. Solicite uma demonstração personalizada e veja como a PrismaGov pode trazer mais clareza, agilidade e inteligência para sua entidade.</p>
+                            <div class="mt-8">
+                                <a href="#" @click.prevent="currentPage = 'demo'" class="bg-white text-azul-eletrico font-bold px-8 py-4 rounded-lg transition hover:bg-gray-100 text-lg">
+                                    Fale com um especialista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
             
             <main x-show="currentPage === 'login'" class="page" x-cloak>
                  <div class="flex items-center justify-center min-h-screen pt-20"><div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl w-full max-w-md m-4"><div class="text-center mb-8"><a href="#" @click.prevent="currentPage = 'home'" class="inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-auto mx-auto" viewBox="0 0 450 100"><defs><linearGradient id="lg-grad-2" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#lg-grad-2)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg></a><h1 class="text-3xl font-bold text-gray-800 mt-4">Acesse sua Conta</h1><p class="text-gray-500">Bem-vindo(a) de volta!</p></div><form @submit.prevent="isLoggedIn = true; currentAppPage = 'inicio'"><div class="space-y-6"><div><label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email</label><input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="seu.email@orgao.gov.br" required></div><div><label for="password" class="block text-sm font-bold text-gray-700 mb-2">Senha</label><input type="password" name="password" id="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" placeholder="••••••••" required></div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-3 rounded-lg cta-button">Entrar</button></div></form></div></div>
             </main>
+            
             <main x-show="currentPage === 'demo'" class="page" x-cloak>
-                <div class="pt-32 pb-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-12"><h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Dê o primeiro passo para transformar a gestão pública</h1><p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Preencha o formulário abaixo e um de nossos especialistas agendará uma demonstração personalizada para você.</p></div><div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"><div class="bg-gray-50 p-8 rounded-2xl"><h3 class="text-2xl font-bold mb-6">Uma nova era para suas contratações:</h3><ul class="space-y-4"><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Redução de riscos jurídicos.</strong> Alinhamento total com a Lei 14.133/21.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Elaboração guiada e inteligente.</strong> Crie artefatos de planejamento em minutos.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Visão estratégica de contratos.</strong> Transforme dados em decisões com dashboards intuitivos.</span></li></ul><div class="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500"><p>🔒 Seus dados estão seguros. Respeitamos a LGPD.</p></div></div><div><form action="#" onsubmit="event.preventDefault(); alert('Demonstração solicitada com sucesso!'); this.dispatchEvent(new CustomEvent('navigate', { bubbles: true, detail: { page: 'home' } }))"><div class="space-y-5"><div><label for="demo-name" class="block text-sm font-bold text-gray-700 mb-2">Nome completo</label><input type="text" id="demo-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-cargo" class="block text-sm font-bold text-gray-700 mb-2">Cargo</label><input type="text" id="demo-cargo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-instituicao" class="block text-sm font-bold text-gray-700 mb-2">Instituição</label><input type="text" id="demo-instituicao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-email" class="block text-sm font-bold text-gray-700 mb-2">E-mail institucional</label><input type="email" id="demo-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-phone" class="block text-sm font-bold text-gray-700 mb-2">Telefone com WhatsApp</label><input type="tel" id="demo-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-4 rounded-lg cta-button text-lg">Agendar Demonstração</button></div></div></form></div></div></div></div>
+                <div class="pt-32 pb-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-12"><h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Dê o primeiro passo para transformar a gestão pública</h1><p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Preencha o formulário abaixo e um de nossos especialistas agendará uma demonstração personalizada para você.</p></div><div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"><div class="bg-gray-50 p-8 rounded-2xl"><h3 class="text-2xl font-bold mb-6">Uma nova era para suas contratações:</h3><ul class="space-y-4"><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Redução de riscos jurídicos.</strong> Alinhamento total com a Lei 14.133/21.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Elaboração guiada e inteligente.</strong> Crie artefatos de planejamento em minutos.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Visão estratégica de contratos.</strong> Transforme dados em decisões com dashboards intuitivos.</span></li></ul><div class="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500"><p>🔒 Seus dados estão seguros. Respeitamos a LGPD.</p></div></div><div><form action="#" @submit.prevent="alert('Demonstração solicitada com sucesso!'); currentPage = 'home'"><div class="space-y-5"><div><label for="demo-name" class="block text-sm font-bold text-gray-700 mb-2">Nome completo</label><input type="text" id="demo-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-cargo" class="block text-sm font-bold text-gray-700 mb-2">Cargo</label><input type="text" id="demo-cargo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-instituicao" class="block text-sm font-bold text-gray-700 mb-2">Instituição</label><input type="text" id="demo-instituicao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-email" class="block text-sm font-bold text-gray-700 mb-2">E-mail institucional</label><input type="email" id="demo-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-phone" class="block text-sm font-bold text-gray-700 mb-2">Telefone com WhatsApp</label><input type="tel" id="demo-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-4 rounded-lg cta-button text-lg">Agendar Demonstração</button></div></div></form></div></div></div></div>
             </main>
-            <!-- Outras páginas de marketing (solution, benefits, etc.) serão adicionadas aqui -->
+
+            <!-- ===== Bloco 5: Páginas Solução e Benefícios ===== -->
+            <main x-show="currentPage === 'solution'" class="page" x-cloak>
+                 <div class="pt-32 pb-20 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 max-w-3xl mx-auto">
+                            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">A plataforma que automatiza e qualifica o planejamento de compras públicas</h1>
+                            <p class="mt-4 text-lg text-gray-600">Projetada para gestores públicos que buscam eficiência, segurança e inteligência em cada etapa do processo licitatório.</p>
+                        </div>
+                        
+                        <div class="space-y-20">
+                            <!-- Módulo 1 -->
+                            <div class="flex flex-col md:flex-row items-center gap-12">
+                                <div class="md:w-1/2">
+                                    <span class="font-bold text-azul-eletrico">MÓDULO 1</span>
+                                    <h2 class="text-3xl font-bold my-3">Análise de Conformidade por IA</h2>
+                                    <p class="text-gray-600 mb-4">Evite falhas e devoluções. Nossa inteligência artificial faz uma varredura completa nos seus documentos, como ETPs e Termos de Referência, para verificar a aderência a todos os itens obrigatórios da Nova Lei de Licitações (14.133/21) e jurisprudência do TCU.</p>
+                                    <ul class="text-gray-700 space-y-2">
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Checklist automatizado de cláusulas</li>
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Identificação de pontos de risco</li>
+                                    </ul>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <img src="https://placehold.co/600x400/0074E4/FFFFFF?text=Análise+de+Conformidade" alt="Análise de Conformidade" class="rounded-xl shadow-lg w-full">
+                                </div>
+                            </div>
+                            
+                            <!-- Módulo 2 -->
+                            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                                <div class="md:w-1/2">
+                                    <span class="font-bold text-verde-menta">MÓDULO 2</span>
+                                    <h2 class="text-3xl font-bold my-3">Geração Inteligente de Artefatos</h2>
+                                    <p class="text-gray-600 mb-4">Responda a um questionário guiado e nossa plataforma gera minutas de alta qualidade para seus ETPs e TRs. A IA sugere textos, justifica escolhas e estrutura o documento de forma lógica e coesa, economizando horas de trabalho da sua equipe.</p>
+                                    <ul class="text-gray-700 space-y-2">
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Baseado em templates validados juridicamente</li>
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Exportação para PDF e DOCX</li>
+                                    </ul>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <img src="https://placehold.co/600x400/24C9A0/FFFFFF?text=Geração+de+Artefatos" alt="Geração de Artefatos" class="rounded-xl shadow-lg w-full">
+                                </div>
+                            </div>
+
+                             <!-- Módulo 3 -->
+                            <div class="flex flex-col md:flex-row items-center gap-12">
+                                <div class="md:w-1/2">
+                                    <span class="font-bold text-roxo-prisma">MÓDULO 3</span>
+                                    <h2 class="text-3xl font-bold my-3">Dashboards Estratégicos</h2>
+                                    <p class="text-gray-600 mb-4">Deixe de gerenciar processos e comece a gerenciar estratégias. A PrismaGov compila os dados de todos os seus planejamentos em um dashboard intuitivo, permitindo que você identifique gargalos, compare custos, analise o tempo médio de contratação e tome decisões baseadas em evidências.</p>
+                                     <ul class="text-gray-700 space-y-2">
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Visão gerencial consolidada</li>
+                                        <li class="flex items-center"><svg class="h-5 w-5 text-verde-menta mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Filtros por período, tipo de objeto e status</li>
+                                    </ul>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <img src="https://placehold.co/600x400/7D3FD1/FFFFFF?text=Dashboards+Estratégicos" alt="Dashboards Estratégicos" class="rounded-xl shadow-lg w-full">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <main x-show="currentPage === 'benefits'" class="page" x-cloak>
+                 <div class="pt-32 pb-20">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 max-w-3xl mx-auto">
+                            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Da burocracia à estratégia: o salto que sua gestão pública merece.</h1>
+                            <p class="mt-4 text-lg text-gray-600">Veja os resultados concretos que a PrismaGov entrega para entidades como a sua.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
+                            <div class="bg-white p-8 rounded-xl shadow-lg">
+                                <span class="gradient-text text-6xl font-extrabold">70%</span>
+                                <p class="mt-2 font-bold text-xl">Menos tempo na geração de TRs</p>
+                                <p class="text-gray-500 mt-1">Automatize a redação e foque na análise estratégica.</p>
+                            </div>
+                             <div class="bg-white p-8 rounded-xl shadow-lg">
+                                <span class="gradient-text text-6xl font-extrabold">99%</span>
+                                <p class="mt-2 font-bold text-xl">de Aderência Legal</p>
+                                <p class="text-gray-500 mt-1">Garanta conformidade com a Lei 14.133/21 em cada documento.</p>
+                            </div>
+                             <div class="bg-white p-8 rounded-xl shadow-lg">
+                                <span class="gradient-text text-6xl font-extrabold">50%</span>
+                                <p class="mt-2 font-bold text-xl">Redução de Erros e Retrabalho</p>
+                                <p class="text-gray-500 mt-1">Minimizamos falhas humanas e devoluções por inconformidade.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-8 md:p-12">
+                            <h2 class="text-3xl font-bold text-center mb-10">Estudo de Caso: Secretaria de Inovação de Metrópolis</h2>
+                            <div class="grid md:grid-cols-2 gap-12 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4">O Desafio</h3>
+                                    <p class="text-gray-600 mb-6">A Secretaria enfrentava um ciclo de compras de TIC de 120 dias, com alta taxa de devolução de ETPs por parte do setor jurídico devido a falhas de fundamentação e requisitos técnicos mal definidos.</p>
+                                    <h3 class="text-2xl font-bold mb-4">A Solução com PrismaGov</h3>
+                                    <p class="text-gray-600">Ao adotar a plataforma, a equipe passou a utilizar a geração guiada de artefatos. A IA da PrismaGov auxiliou na definição de requisitos e garantiu que todos os pontos da lei fossem cobertos antes do envio para análise.</p>
+                                </div>
+                                 <div>
+                                    <h3 class="text-2xl font-bold mb-4">Resultados</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-center"><span class="bg-verde-menta text-white font-bold h-8 w-8 rounded-full flex items-center justify-center mr-4">-60%</span> Ciclo de compras reduzido para 48 dias.</li>
+                                        <li class="flex items-center"><span class="bg-verde-menta text-white font-bold h-8 w-8 rounded-full flex items-center justify-center mr-4">-90%</span> Taxa de devolução de documentos.</li>
+                                        <li class="flex items-center"><span class="bg-verde-menta text-white font-bold h-8 w-8 rounded-full flex items-center justify-center mr-4">+30%</span> Satisfação da equipe técnica e jurídica.</li>
+                                    </ul>
+                                    <div class="mt-8">
+                                         <a href="#" @click.prevent="currentPage = 'demo'" class="bg-azul-eletrico text-white font-semibold px-6 py-3 rounded-lg cta-button">Veja como podemos ajudar sua entidade</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </main>
         </div>
 
         <footer class="bg-gray-800 text-white" x-show="!isLoggedIn">
