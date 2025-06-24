@@ -259,7 +259,7 @@
                 <div class="pt-32 pb-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-12"><h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Dê o primeiro passo para transformar a gestão pública</h1><p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Preencha o formulário abaixo e um de nossos especialistas agendará uma demonstração personalizada para você.</p></div><div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"><div class="bg-gray-50 p-8 rounded-2xl"><h3 class="text-2xl font-bold mb-6">Uma nova era para suas contratações:</h3><ul class="space-y-4"><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Redução de riscos jurídicos.</strong> Alinhamento total com a Lei 14.133/21.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Elaboração guiada e inteligente.</strong> Crie artefatos de planejamento em minutos.</span></li><li class="flex items-start"><svg class="h-6 w-6 text-verde-menta mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong class="block">Visão estratégica de contratos.</strong> Transforme dados em decisões com dashboards intuitivos.</span></li></ul><div class="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500"><p>🔒 Seus dados estão seguros. Respeitamos a LGPD.</p></div></div><div><form action="#" @submit.prevent="alert('Demonstração solicitada com sucesso!'); currentPage = 'home'"><div class="space-y-5"><div><label for="demo-name" class="block text-sm font-bold text-gray-700 mb-2">Nome completo</label><input type="text" id="demo-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-cargo" class="block text-sm font-bold text-gray-700 mb-2">Cargo</label><input type="text" id="demo-cargo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-instituicao" class="block text-sm font-bold text-gray-700 mb-2">Instituição</label><input type="text" id="demo-instituicao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-email" class="block text-sm font-bold text-gray-700 mb-2">E-mail institucional</label><input type="email" id="demo-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><label for="demo-phone" class="block text-sm font-bold text-gray-700 mb-2">Telefone com WhatsApp</label><input type="tel" id="demo-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></div><div><button type="submit" class="w-full bg-azul-eletrico text-white font-bold py-4 rounded-lg cta-button text-lg">Agendar Demonstração</button></div></div></form></div></div></div></div>
             </main>
 
-            <!-- ===== Bloco 5: Páginas Solução e Benefícios ===== -->
+            <!-- ===== Páginas de Conteúdo ===== -->
             <main x-show="currentPage === 'solution'" class="page" x-cloak>
                  <div class="pt-32 pb-20 bg-white">
                     <div class="container mx-auto px-6">
@@ -372,6 +372,127 @@
                         </div>
                     </div>
                  </div>
+            </main>
+
+            <!-- ===== Bloco 6: Páginas Sobre, FAQ, Contato ===== -->
+            <main x-show="currentPage === 'about'" class="page" x-cloak>
+                <div class="pt-32 pb-20 bg-white">
+                    <div class="container mx-auto px-6 text-center">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Construindo o Futuro da Gestão Pública</h1>
+                        <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Nascemos da crença de que a tecnologia pode e deve ser a maior aliada do serviço público, transformando complexidade em clareza e burocracia em estratégia.</p>
+                    </div>
+                </div>
+                <div class="container mx-auto px-6 py-16 grid md:grid-cols-3 gap-12 text-center">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2 gradient-text">Nossa Missão</h2>
+                        <p>Levar clareza e segurança jurídica para a máquina pública por meio de tecnologia de ponta, capacitando gestores a tomar as melhores decisões para a sociedade.</p>
+                    </div>
+                     <div>
+                        <h2 class="text-2xl font-bold mb-2 gradient-text">Nossa Visão</h2>
+                        <p>Ser a referência nacional em inteligência artificial aplicada à nova era da contratação pública, impulsionando um governo mais ágil, eficiente e transparente.</p>
+                    </div>
+                     <div>
+                        <h2 class="text-2xl font-bold mb-2 gradient-text">Nossos Valores</h2>
+                        <p>Transparência radical, compromisso com a legalidade, inovação com propósito e ética em cada linha de código e em cada interação com nossos clientes.</p>
+                    </div>
+                </div>
+            </main>
+
+            <main x-show="currentPage === 'faq'" class="page" x-cloak>
+                <div class="pt-32 pb-20">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Perguntas Frequentes</h1>
+                            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para suas dúvidas mais comuns.</p>
+                        </div>
+                        <div class="max-w-3xl mx-auto space-y-4" x-data="{ selected: 1 }">
+                            <div class="bg-white rounded-xl shadow-md">
+                                <h2 @click="selected = (selected === 1 ? null : 1)" class="p-6 font-bold cursor-pointer flex justify-between items-center">
+                                    A plataforma substitui minha equipe de licitação?
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': selected === 1}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </h2>
+                                <div class="p-6 pt-0 text-gray-600" x-show="selected === 1" x-collapse>
+                                    Não. A PrismaGov é uma ferramenta de apoio e qualificação. Ela potencializa o trabalho da sua equipe, automatizando tarefas repetitivas e de verificação para que os servidores possam focar na análise estratégica, na negociação e na gestão, que são insubstituíveis.
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl shadow-md">
+                                <h2 @click="selected = (selected === 2 ? null : 2)" class="p-6 font-bold cursor-pointer flex justify-between items-center">
+                                    Preciso instalar algum programa no meu computador?
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': selected === 2}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </h2>
+                                <div class="p-6 pt-0 text-gray-600" x-show="selected === 2" x-collapse>
+                                    Não. A PrismaGov é uma plataforma 100% online (SaaS - Software as a Service). Você só precisa de um navegador de internet e acesso à sua conta para utilizar todas as funcionalidades.
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl shadow-md">
+                                <h2 @click="selected = (selected === 3 ? null : 3)" class="p-6 font-bold cursor-pointer flex justify-between items-center">
+                                    A PrismaGov é compatível com pequenas prefeituras?
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': selected === 3}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </h2>
+                                <div class="p-6 pt-0 text-gray-600" x-show="selected === 3" x-collapse>
+                                    Com certeza. Nossa plataforma foi projetada para ser escalável e acessível a órgãos públicos de todos os portes. Temos planos e condições especiais que se adaptam à realidade de pequenas e médias prefeituras, ajudando-as a se adequar à nova lei com a mesma eficiência de grandes capitais.
+                                </div>
+                            </div>
+                             <div class="bg-white rounded-xl shadow-md">
+                                <h2 @click="selected = (selected === 4 ? null : 4)" class="p-6 font-bold cursor-pointer flex justify-between items-center">
+                                    Como funciona a integração com outros sistemas (SEI, ComprasNet)?
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': selected === 4}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </h2>
+                                <div class="p-6 pt-0 text-gray-600" x-show="selected === 4" x-collapse>
+                                    Atualmente, a PrismaGov opera como uma plataforma de apoio à criação e análise, exportando documentos em formatos compatíveis (.pdf, .docx) para serem facilmente inseridos nos sistemas de processo eletrônico como o SEI. Estamos desenvolvendo integrações via API para automatizar ainda mais esse fluxo no futuro.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <main x-show="currentPage === 'contact'" class="page" x-cloak>
+                 <div class="pt-32 pb-20">
+                     <div class="text-center mb-12">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Entre em Contato</h1>
+                        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Estamos aqui para ajudar. Use o formulário para dúvidas gerais ou clique em um dos canais diretos abaixo.</p>
+                    </div>
+                    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-8 sm:p-12 rounded-2xl shadow-xl">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-6">Canais Diretos</h2>
+                            <div class="space-y-6">
+                                <a href="mailto:contato@prismagov.com.br" class="flex items-center group">
+                                    <div class="bg-gray-100 p-3 rounded-full mr-4"><svg class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                    <div>
+                                        <p class="font-bold group-hover:text-azul-eletrico">E-mail</p>
+                                        <p class="text-gray-600">contato@prismagov.com.br</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="flex items-center group">
+                                    <div class="bg-gray-100 p-3 rounded-full mr-4"><svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.001 4.999a9.004 9.004 0 0 0-14.28 7.625c.002.083.004.167.007.25H4.66A7.994 7.994 0 0 1 12.001 6a7.993 7.993 0 0 1 7.933 7.105h.001a.34.34 0 0 0 .066-.026 1.494 1.494 0 0 1 1.096-.282 1.5 1.5 0 0 1 1.253 1.684 9.043 9.043 0 0 0-.25 1.116 8.995 8.995 0 0 0-17.72-.001H2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1v.001a9.003 9.003 0 0 0 16.183 5.064.338.338 0 0 0 .041-.016 1.5 1.5 0 0 1 2.457-1.194 1.5 1.5 0 0 1 .4-2.186 9.018 9.018 0 0 0-1.082-1.258z"></path></svg></div>
+                                    <div>
+                                        <p class="font-bold group-hover:text-azul-eletrico">WhatsApp</p>
+                                        <p class="text-gray-600">(XX) XXXX-XXXX</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                         <form action="#" @submit.prevent="alert('Mensagem enviada com sucesso!'); currentPage = 'home'"><div class="space-y-5">
+                             <div>
+                                <label for="contact-name-2" class="block text-sm font-bold text-gray-700 mb-2">Seu Nome</label>
+                                <input type="text" id="contact-name-2" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required>
+                            </div>
+                            <div>
+                                <label for="contact-email-2" class="block text-sm font-bold text-gray-700 mb-2">Seu Email</label>
+                                <input type="email" id="contact-email-2" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required>
+                            </div>
+                            <div>
+                                <label for="contact-message-2" class="block text-sm font-bold text-gray-700 mb-2">Mensagem</label>
+                                <textarea id="contact-message-2" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-azul-eletrico" required></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="bg-azul-eletrico text-white font-bold px-8 py-3 rounded-lg cta-button">Enviar</button>
+                            </div>
+                        </div>
+                         </form>
+                    </div>
+                </div>
             </main>
         </div>
 
