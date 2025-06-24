@@ -24,28 +24,21 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #F2F4F8; /* Cinza Claro do Branding */
-            color: #1F2937; /* Cinza Escuro para texto */
+            background-color: #F2F4F8;
+            color: #1F2937;
         }
-        /* Custom styles to reuse brand colors */
         .bg-azul-eletrico { background-color: #0074E4; }
         .text-azul-eletrico { color: #0074E4; }
         .border-azul-eletrico { border-color: #0074E4; }
-        
         .bg-verde-menta { background-color: #24C9A0; }
         .text-verde-menta { color: #24C9A0; }
-
         .bg-roxo-prisma { background-color: #7D3FD1; }
         .text-roxo-prisma { color: #7D3FD1; }
-
         .gradient-text {
             background: linear-gradient(90deg, #0074E4, #24C9A0, #7D3FD1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; text-fill-color: transparent;
         }
-
         .cta-button {
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px -5px rgba(0, 116, 228, 0.4);
@@ -54,32 +47,17 @@
             transform: translateY(-3px);
             box-shadow: 0 7px 20px -5px rgba(0, 116, 228, 0.6);
         }
-
         .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 50;
-            background-color: #0074E4;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 9999px;
-            font-weight: 700;
+            position: fixed; bottom: 20px; right: 20px; z-index: 50;
+            background-color: #0074E4; color: white; padding: 14px 24px;
+            border-radius: 9999px; font-weight: 700;
             box-shadow: 0 4px 15px rgba(0, 116, 228, 0.3);
             transition: all 0.3s ease;
         }
-        .floating-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 116, 228, 0.5);
-        }
+        .floating-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 116, 228, 0.5); }
         [x-cloak] { display: none !important; }
-        .page, .app-page {
-             animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .page, .app-page { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body x-data="app()" x-cloak>
@@ -89,9 +67,8 @@
 
     <!-- Visualização para usuários DESLOGADOS -->
     <div id="marketing-view" x-show="!isLoggedIn">
-        <!-- ===== Header / Navegação (Deslogado) ===== -->
         <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
-             <div class="container mx-auto px-6 py-4">
+            <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <a href="#" @click.prevent="currentPage = 'home'" class="flex items-center">
                          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto" viewBox="0 0 450 100"><defs><linearGradient id="gH" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(0, -5) scale(0.9)"><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gH)"/></g></g><g transform="translate(185, 20)"><text y="40" font-family="Montserrat, sans-serif" font-size="40" font-weight="700" fill="#1F2937">Prisma<tspan fill="#0074E4">Gov</tspan></text></g></svg>
@@ -100,7 +77,7 @@
                         <a href="#" @click.prevent="currentPage = 'solution'" class="text-gray-600 hover:text-azul-eletrico transition">Soluções</a>
                         <a href="#" @click.prevent="currentPage = 'benefits'" class="text-gray-600 hover:text-azul-eletrico transition">Benefícios</a>
                         <a href="#" @click.prevent="currentPage = 'about'" class="text-gray-600 hover:text-azul-eletrico transition">Sobre Nós</a>
-                        <a href="#" @click.prevent="currentPage = 'contact'" class="text-gray-600 hover:text-azul-eletrico transition">Contato</a>
+                        <a href="#" @click.prevent="currentPage = 'faq'" class="text-gray-600 hover:text-azul-eletrico transition">FAQ</a>
                     </nav>
                     <div class="hidden md:flex items-center space-x-4">
                         <a href="#" @click.prevent="currentPage = 'login'" class="text-gray-600 font-semibold hover:text-azul-eletrico transition">Acessar</a>
@@ -110,149 +87,28 @@
             </div>
         </header>
 
-        <!-- Páginas de marketing omitidas para brevidade... -->
+        <div id="page-container">
+            <!-- As páginas de marketing serão injetadas aqui -->
+        </div>
 
         <footer class="bg-gray-800 text-white" x-show="!isLoggedIn">
-            <!-- Conteúdo do footer omitido para brevidade... -->
+            <!-- Conteúdo do Footer -->
         </footer>
     </div>
 
     <!-- Visualização para usuários LOGADOS (APP SHELL) -->
     <div id="app-shell" x-show="isLoggedIn" x-cloak>
-        <div class="flex h-screen bg-gray-100">
-            <!-- Sidebar de Navegação (Logado) -->
-            <aside class="w-64 bg-white shadow-md flex flex-col flex-shrink-0">
-                <div class="flex items-center justify-center p-6 border-b space-x-2">
-                    <a href="#" @click.prevent="navigateAppTo('inicio')" class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 170 100"><defs><linearGradient id="gS" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#0074E4"/><stop offset="50%" stop-color="#24C9A0"/><stop offset="100%" stop-color="#7D3FD1"/></linearGradient></defs><g transform="translate(18, 0) scale(0.9)"><path d="M 35 15 H 85 L 85 90 H 35 Z" fill="#E5E7EB"/><path d="M 85 15 L 70 30 H 85 Z" fill="#D1D5DB"/><g transform="translate(-5, 0)"><path d="M 40 85 L 40 15 L 60 25 L 60 75 Z" fill="#4A5568"/><polygon points="60,25 105,50 60,75" fill="#2D3748"/><polygon points="60,25 105,50 80,25" fill="#718096"/></g><path d="M 100 50 L 163 22 L 163 78 Z" fill="url(#gS)"/></g></svg>
-                        <span class="ml-2 text-xl font-bold text-gray-800">Prisma<span class="text-azul-eletrico">Gov</span></span>
-                    </a>
-                </div>
-                <nav class="flex-1 px-4 py-4 space-y-2" id="app-nav">
-                    <a href="#" @click.prevent="navigateAppTo('inicio')" data-page="inicio" class="app-nav-link flex items-center px-4 py-2.5 text-gray-700 bg-gray-200 rounded-lg font-semibold"><span id="icon-inicio"></span><span class="ml-3">Início</span></a>
-                    <a href="#" @click.prevent="navigateAppTo('documentos')" data-page="documentos" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-documentos"></span><span class="ml-3">Documentos</span></a>
-                    <a href="#" @click.prevent="navigateAppTo('tr')" data-page="tr" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-tr"></span><span class="ml-3">Novo TR</span></a>
-                    <a href="#" class="flex items-center px-4 py-2.5 text-gray-400 cursor-not-allowed"><span id="icon-etp"></span><span class="ml-3">ETP <span class="text-xs ml-1 bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded">Em Breve</span></span></a>
-                    <a href="#" class="flex items-center px-4 py-2.5 text-gray-400 cursor-not-allowed"><span id="icon-dfd"></span><span class="ml-3">DFD <span class="text-xs ml-1 bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded">Em Breve</span></span></a>
-                </nav>
-                <div class="p-4 border-t">
-                    <a href="#" @click.prevent="navigateAppTo('config')" data-page="config" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg mb-2"><span id="icon-config"></span><span class="ml-3">Configurações</span></a>
-                    <a href="#" @click.prevent="navigateAppTo('suporte')" data-page="suporte" class="app-nav-link flex items-center px-4 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg"><span id="icon-suporte"></span><span class="ml-3">Suporte</span></a>
-                </div>
-            </aside>
-            
-            <div class="flex-1 flex flex-col overflow-hidden">
-                <header class="flex justify-between items-center p-4 bg-white border-b">
-                    <div class="font-semibold">Logado como: <span class="text-azul-eletrico" x-text="user.name || 'Gestor Público'"></span></div>
-                    <button @click="logout()" class="text-gray-500 hover:text-red-600 font-semibold flex items-center"><span id="icon-logout"></span><span class="ml-2">Sair</span></button>
-                </header>
-                
-                <main id="app-content" class="flex-1 p-6 lg:p-8 overflow-y-auto">
-                    <!-- Conteúdo das Páginas da Aplicação -->
-                    <div x-show="currentAppPage === 'inicio'" class="app-page">
-                        <h1 class="text-3xl font-bold mb-4">Bem-vindo ao PrismaGov!</h1>
-                        <p class="text-gray-600 mb-8">Seu dashboard central para uma gestão de contratações mais inteligente.</p>
-                    </div>
-
-                    <div x-show="currentAppPage === 'documentos'" class="app-page" x-cloak>
-                         <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                             <h1 class="text-4xl font-bold text-gray-800">Meus Documentos</h1>
-                             <button @click.prevent="navigateAppTo('tr')" class="bg-azul-eletrico text-white font-bold px-6 py-3 rounded-lg cta-button mt-4 md:mt-0">Criar Novo Documento</button>
-                         </div>
-                         <div class="bg-white rounded-xl shadow-lg overflow-x-auto">
-                            <table class="w-full text-left">
-                                <thead class="bg-gray-50 border-b border-gray-200">
-                                    <tr>
-                                        <th class="px-6 py-4 font-semibold text-gray-600">Título</th>
-                                        <th class="px-6 py-4 font-semibold text-gray-600">Status</th>
-                                        <th class="px-6 py-4 font-semibold text-gray-600">Atualização</th>
-                                        <th class="px-6 py-4 font-semibold text-gray-600">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <template x-if="isLoading">
-                                        <tr><td colspan="4" class="text-center p-6">Carregando documentos...</td></tr>
-                                    </template>
-                                    <template x-if="!isLoading && documents.length === 0">
-                                        <tr><td colspan="4" class="text-center p-6 text-gray-500">Nenhum documento encontrado.</td></tr>
-                                    </template>
-                                    <template x-for="doc in documents" :key="doc.id">
-                                        <tr>
-                                            <td class="px-6 py-4 font-medium" x-text="doc.titulo"></td>
-                                            <td class="px-6 py-4"><span class="px-3 py-1 text-sm font-semibold rounded-full" :class="statusClass(doc.status)" x-text="doc.status"></span></td>
-                                            <td class="px-6 py-4 text-gray-500" x-text="new Date(doc.atualizado_em).toLocaleDateString('pt-BR')"></td>
-                                            <td class="px-6 py-4 flex space-x-2"><a href="#" class="text-azul-eletrico hover:underline">Ver</a><a href="#" class="text-gray-600 hover:underline">Exportar</a></td>
-                                        </tr>
-                                    </template>
-                                </tbody>
-                            </table>
-                         </div>
-                    </div>
-
-                    <!-- Bloco 10: Formulário de Criação de TR -->
-                    <div x-show="currentAppPage === 'tr'" class="app-page" x-cloak>
-                        <h1 class="text-3xl font-bold mb-4">Novo Termo de Referência</h1>
-                        <p class="text-gray-600 mb-8">Preencha os dados iniciais para gerar o DNA da sua contratação.</p>
-                        <form @submit.prevent="createDocument()" class="bg-white p-8 rounded-xl shadow-lg space-y-6 max-w-2xl mx-auto">
-                            <div>
-                                <label for="tr-title" class="block text-sm font-bold text-gray-700 mb-2">Título do Documento</label>
-                                <input type="text" id="tr-title" x-model="newDocumentData.titulo" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required>
-                            </div>
-                            <div>
-                                <label for="tr-nature" class="block text-sm font-bold text-gray-700 mb-2">Natureza do Objeto</label>
-                                <select id="tr-nature" x-model="newDocumentData.natureza" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico bg-white" required>
-                                    <option value="">Selecione a natureza...</option>
-                                    <option value="Serviço Comum">Serviço Comum</option>
-                                    <option value="Serviço Contínuo com Dedicação de Mão de Obra">Serviço Contínuo com Dedicação de Mão de Obra</option>
-                                    <option value="Serviço de TIC">Serviço de TIC</option>
-                                    <option value="Compra de Bem ou Produto">Compra de Bem ou Produto</option>
-                                    <option value="Obra ou Serviço de Engenharia">Obra ou Serviço de Engenharia</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="tr-problem" class="block text-sm font-bold text-gray-700 mb-2">Problema ou Necessidade</label>
-                                <textarea id="tr-problem" rows="4" x-model="newDocumentData.problema" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required></textarea>
-                            </div>
-                             <div>
-                                <label for="tr-results" class="block text-sm font-bold text-gray-700 mb-2">Resultados Esperados</label>
-                                <textarea id="tr-results" rows="4" x-model="newDocumentData.resultados" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-azul-eletrico" required></textarea>
-                            </div>
-                            <div class="text-right">
-                                <button type="submit" class="bg-azul-eletrico text-white font-bold py-3 px-6 rounded-lg cta-button">
-                                    <span x-show="!isLoading">Criar Documento</span>
-                                    <span x-show="isLoading">Criando...</span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                     <div x-show="currentAppPage === 'config'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Configurações da Conta</h1></div>
-                     <div x-show="currentAppPage === 'suporte'" class="app-page" x-cloak><h1 class="text-3xl font-bold">Suporte</h1></div>
-                </main>
-            </div>
-        </div>
+        <!-- Conteúdo do App Shell -->
     </div>
 
     <script>
         function app() {
             return {
-                isLoggedIn: false,
-                mobileMenuOpen: false, 
-                currentPage: 'home', 
-                currentAppPage: 'inicio',
-                user: null,
-                credentials: { email: '', password: '' },
-                apiBaseUrl: 'http://localhost:3001/api/v1',
-                documents: [],
-                isLoading: false,
-                newDocumentData: {
-                    titulo: '', // Adicionado para o formulário
-                    natureza: '',
-                    problema: '',
-                    resultados: '',
-                    // formulario_id é gerado dinamicamente
-                },
-
+                isLoggedIn: false, mobileMenuOpen: false, currentPage: 'home', currentAppPage: 'inicio',
+                user: null, credentials: { email: '', password: '' }, apiBaseUrl: 'http://localhost:3001/api/v1',
+                documents: [], isLoading: false,
+                newDocumentData: { titulo: '', natureza: '', problema: '', resultados: '' },
+                wizard: { currentStep: 1, tr_id: null, statusText: 'Aguardando início...', documentContent: { title: 'Termo de Referência (em construção)', dna: '', prices: '' }},
                 init() {
                     const token = localStorage.getItem('authToken');
                     if (token) {
@@ -263,7 +119,6 @@
                         } catch (e) { this.logout(); }
                     }
                 },
-                
                 async login() {
                     this.isLoading = true;
                     try {
@@ -287,14 +142,12 @@
                         this.isLoading = false;
                     }
                 },
-
                 logout() {
                     localStorage.removeItem('authToken');
                     this.isLoggedIn = false;
                     this.user = null;
                     this.currentPage = 'home';
                 },
-                
                 async getDocuments() {
                     if (!this.isLoggedIn) return;
                     this.isLoading = true;
@@ -311,49 +164,38 @@
                         this.isLoading = false;
                     }
                 },
-
                 async createDocument() {
                     if (!this.isLoggedIn) return;
                     this.isLoading = true;
+                    this.wizard.statusText = 'Analisando DNA da Contratação...';
                     
-                    const payload = {
-                        ...this.newDocumentData,
-                        formulario_id: crypto.randomUUID(), // Gera um ID único no frontend
-                    };
-
+                    const payload = { ...this.newDocumentData, formulario_id: crypto.randomUUID() };
+                    this.wizard.tr_id = payload.formulario_id;
+                    
                     try {
                         const token = localStorage.getItem('authToken');
                         const response = await fetch(`${this.apiBaseUrl}/documentos/novo`, {
                             method: 'POST',
-                            headers: { 
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${token}`
-                            },
+                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
                             body: JSON.stringify(payload),
                         });
-
-                        if (!response.ok) {
-                            const errorData = await response.json();
-                            throw new Error(errorData.message || 'Falha ao criar o documento.');
-                        }
+                        if (!response.ok) throw new Error((await response.json()).message || 'Falha ao criar o documento.');
                         
-                        alert('Documento iniciado com sucesso!');
-                        // Limpa o formulário e navega para a lista de documentos
-                        this.newDocumentData = { titulo: '', natureza: '', problema: '', resultados: '' };
-                        this.navigateAppTo('documentos');
-
+                        await this.sleep(1500);
+                        this.wizard.documentContent.title = payload.titulo;
+                        this.wizard.documentContent.dna = `<h2>1. Definição da Necessidade</h2><p><strong>Problema a ser resolvido:</strong> ${payload.problema}</p><p><strong>Resultados esperados:</strong> ${payload.resultados}</p><p><strong>Natureza do Objeto:</strong> ${payload.natureza}</p>`;
+                        this.wizard.currentStep = 2;
+                        this.wizard.statusText = 'Aguardando análise de preços...';
                     } catch (err) {
                         alert('Erro: ' + err.message);
+                        this.wizard.tr_id = null;
                     } finally {
                         this.isLoading = false;
                     }
                 },
-                
                 navigateAppTo(page) {
                     this.currentAppPage = page;
-                    if (page === 'documentos') {
-                        this.getDocuments();
-                    }
+                    if (page === 'documentos') this.getDocuments();
                     document.querySelectorAll('.app-nav-link').forEach(link => {
                         const isCurrent = link.dataset.page === page;
                         link.classList.toggle('bg-gray-200', isCurrent);
@@ -363,7 +205,6 @@
                     });
                      window.scrollTo(0, 0);
                 },
-
                 statusClass(status) {
                     switch(status) {
                         case 'finalizado': return 'bg-verde-menta/20 text-verde-menta';
@@ -371,29 +212,28 @@
                         case 'erro': return 'bg-red-500/20 text-red-500';
                         default: return 'bg-gray-200 text-gray-600';
                     }
-                }
+                },
+                sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
             }
         }
-
+        
         const iconMappings = {
-            'icon-inicio': 'Home', 'icon-documentos': 'Files', 'icon-tr': 'FilePlus2',
-            'icon-etp': 'FileText', 'icon-dfd': 'FileSpreadsheet', 'icon-config': 'Settings',
-            'icon-suporte': 'LifeBuoy', 'icon-logout': 'LogOut'
+            'icon-inicio': 'Home', 'icon-documentos': 'Files', 'icon-tr': 'FilePlus2', 'icon-etp': 'FileText', 
+            'icon-dfd': 'FileSpreadsheet', 'icon-config': 'Settings', 'icon-suporte': 'LifeBuoy', 
+            'icon-logout': 'LogOut', 'icon-doc-start': 'FileText'
         };
 
         function renderIcons() {
              for (const [id, name] of Object.entries(iconMappings)) {
                 const container = document.getElementById(id);
                 if(container){
-                    const iconElement = React.createElement(lucide[name], { size: 20 });
+                    const iconElement = React.createElement(lucide[name], { size: (id === 'icon-doc-start' ? 48 : 20), className: (id === 'icon-doc-start' ? 'mx-auto text-gray-300' : '') });
                     ReactDOM.render(iconElement, container);
                 }
             }
         }
         
-        document.addEventListener('DOMContentLoaded', () => {
-             renderIcons();
-        });
+        document.addEventListener('DOMContentLoaded', () => { renderIcons(); });
     </script>
 </body>
 </html>
