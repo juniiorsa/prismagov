@@ -1,0 +1,8 @@
+{
+  "name": "Node.js & NestJS",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/nestjs-cli:1": {}
+  },
+  "postCreateCommand": "npm install"
+}
