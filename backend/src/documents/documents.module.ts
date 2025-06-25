@@ -4,7 +4,7 @@ import { DocumentsService } from './documents.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [HttpModule], // Módulo para fazer requisições HTTP para o N8N
+  imports: [HttpModule],
   controllers: [DocumentsController],
   providers: [DocumentsService],
 })

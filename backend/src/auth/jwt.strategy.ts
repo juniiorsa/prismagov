@@ -12,8 +12,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: configService.get<string>('JWT_SECRET'),
     });
   }
-
-  // O payload do token JWT é decodificado e validado aqui
   async validate(payload: any) {
     return { userId: payload.sub, email: payload.email, name: payload.name };
   }

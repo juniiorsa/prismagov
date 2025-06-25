@@ -1,10 +1,9 @@
 import { Controller, Post, Get, Body, Param, UseGuards, Request } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
-import { CreateDocumentDto } from './dto/documents.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt.guard'; // Supondo que você crie este arquivo
 
 @Controller('documentos')
-@UseGuards(JwtAuthGuard) // Protege todas as rotas deste controlador
+@UseGuards(JwtAuthGuard)
 export class DocumentsController {
   constructor(private readonly documentsService: DocumentsService) {}
 
@@ -13,13 +12,6 @@ export class DocumentsController {
     const userId = req.user.userId;
     return this.documentsService.listDocuments(userId);
   }
-
-  @Post('novo')
-  async createNewDocument(@Body() createDto: CreateDocumentDto, @Request() req) {
-    // Adiciona o ID do usuário logado ao payload antes de enviar para o N8N
-    const payload = { ...createDto, usuario_id: req.user.userId };
-    return this.documentsService.callN8NWebhook('webhook-formulario-novo-tr', payload);
-  }
-
-  // ... outras rotas de etapas aqui ...
+  
+  // Adicione outras rotas aqui conforme necessário
 }
